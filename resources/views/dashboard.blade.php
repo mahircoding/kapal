@@ -39,10 +39,16 @@
                     <div class="bg-green-100 dark:bg-green-900/30 p-3 rounded-lg">
                         <flux:icon name="check-circle" class="text-green-600 dark:text-green-400" size="lg" />
                     </div>
-                    <div>
-                        <div class="text-sm text-zinc-500 dark:text-zinc-400">Email Verified</div>
-                        <div class="text-xl font-bold">
-                            {{ auth()->user()->hasVerifiedEmail() ? 'Yes' : 'No' }}
+                    <div class="space-y-2">
+                        <div class="flex items-center gap-2">
+                            <flux:badge size="sm" :color="auth()->user()->hasVerifiedEmail() ? 'green' : 'yellow'" :icon="auth()->user()->hasVerifiedEmail() ? 'check-circle' : 'exclamation-triangle'">
+                                Email {{ auth()->user()->hasVerifiedEmail() ? 'Verified' : 'Not Verified' }}
+                            </flux:badge>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <flux:badge size="sm" :color="auth()->user()->hasVerifiedWhatsApp() ? 'green' : 'yellow'" :icon="auth()->user()->hasVerifiedWhatsApp() ? 'check-circle' : 'exclamation-triangle'">
+                                Phone {{ auth()->user()->hasVerifiedWhatsApp() ? 'Verified' : 'Not Verified' }}
+                            </flux:badge>
                         </div>
                     </div>
                 </div>

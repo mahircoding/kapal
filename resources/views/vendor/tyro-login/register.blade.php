@@ -54,10 +54,11 @@
                     @enderror
                 </div>
 
+
                 <!-- WhatsApp Number Field -->
                 <div class="form-group">
                     <label for="whatsapp_number" class="form-label">WhatsApp Number</label>
-                    <input type="text" id="whatsapp_number" name="whatsapp_number" class="form-input @error('whatsapp_number') is-invalid @enderror" value="{{ old('whatsapp_number') }}" required placeholder="e.g. 08123456789">
+                    <input type="tel" id="whatsapp_number" name="whatsapp_number" class="form-input @error('whatsapp_number') is-invalid @enderror" value="{{ old('whatsapp_number') }}" required>
                     @error('whatsapp_number')
                     <span class="error-message">{{ $message }}</span>
                     @enderror
@@ -182,6 +183,16 @@
     .captcha-input[type=number] {
         -moz-appearance: textfield;
     }
+
+    /* Make intl-tel-input full width */
+    .iti {
+        width: 100%;
+        display: block;
+    }
+    
+    .iti__input {
+        width: 100%;
+    }
 </style>
 @endsection
 
@@ -203,5 +214,41 @@
             hideIcon.style.display = 'none';
         }
     }
+
+    // Initialize International Telephone Input
+    document.addEventListener('DOMContentLoaded', function() {
+        const input = document.querySelector("#whatsapp_number");
+        if (input) {
+            const iti = window.intlTelInput(input, {
+                initialCountry: "id",
+                preferredCountries: ["id", "my", "sg", "us"],
+                separateDialCode: true,
+                utilsScript: "https://cdn.jsdelivr.net/npm/intl-tel-input@23.0.11/build/js/utils.js",
+                formatOnDisplay: true,
+                autoPlaceholder: "aggressive",
+                customPlaceholder: function(selectedCountryPlaceholder, selectedCountryData) {
+                    return "e.g. " + selectedCountryPlaceholder;
+                }
+            });
+
+            // On form submit, get the full international number
+            const form = input.closest('form');
+            form.addEventListener('submit', function(e) {
+                const fullNumber = iti.getNumber();
+                input.value = fullNumber;
+            });
+
+            // Validate on blur
+            input.addEventListener('blur', function() {
+                if (input.value.trim()) {
+                    if (iti.isValidNumber()) {
+                        input.classList.remove('is-invalid');
+                    } else {
+                        input.classList.add('is-invalid');
+                    }
+                }
+            });
+        }
+    });
 </script>
 @endpush

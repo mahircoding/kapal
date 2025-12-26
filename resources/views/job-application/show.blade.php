@@ -29,9 +29,9 @@
                                     Download PDF
                                 </flux:button>
                                 
-                                <flux:button variant="outline" size="sm" onclick="window.print()" icon="printer">
+                                {{-- <flux:button variant="outline" size="sm" onclick="window.print()" icon="printer">
                                     Print
-                                </flux:button>
+                                </flux:button> --}}
                             </div>
                         </div>
 
@@ -118,7 +118,7 @@
                                 @endif
                                 @if($application->account_data_path)
                                 <a href="{{ Storage::url($application->account_data_path) }}" target="_blank" class="text-blue-600 hover:underline text-sm flex items-center gap-1">
-                                    <flux:icon name="credit-card" size="sm" /> Account Data
+                                    <flux:icon name="credit-card" size="sm" /> Account Bank
                                 </a>
                                 @endif
                                  </div>

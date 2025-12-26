@@ -152,7 +152,7 @@
                                 </div>
                                 
                                 <div>
-                                    <flux:input type="file" name="account_data" label="Account Data" />
+                                    <flux:input type="file" name="account_data" label="Account Bank" />
                                     @if(isset($uploadedFiles['account_data_path']))
                                         <p class="text-sm text-green-600 dark:text-green-400 mt-1">
                                             ✓ File uploaded: {{ basename($uploadedFiles['account_data_path']) }}

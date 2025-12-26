@@ -79,7 +79,7 @@
                                 <li>Certificate: {{ ($data['certificate_path'] ?? false) ? 'Uploaded' : 'Not provided' }}</li>
                                 <li>Medical Certificate: {{ ($data['medical_certificate_path'] ?? false) ? 'Uploaded' : 'Not provided' }}</li>
                                 <li>Buku Pelaut: {{ ($data['buku_pelaut_path'] ?? false) ? 'Uploaded' : 'Not provided' }}</li>
-                                <li>Account Data: {{ ($data['account_data_path'] ?? false) ? 'Uploaded' : 'Not provided' }}</li>
+                                <li>Account Bank: {{ ($data['account_data_path'] ?? false) ? 'Uploaded' : 'Not provided' }}</li>
                             </ul>
                         </div>
 

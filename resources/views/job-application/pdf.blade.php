@@ -208,7 +208,7 @@
                 'cv_path' => 'CV / Resume',
                 'certificate_path' => 'Certificate (COP/COC)',
                 'buku_pelaut_path' => 'Buku Pelaut',
-                'account_data_path' => 'Account Data',
+                'account_data_path' => 'Account Bank',
             ];
         @endphp
         

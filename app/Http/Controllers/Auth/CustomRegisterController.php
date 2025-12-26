@@ -42,18 +42,21 @@ class CustomRegisterController extends Controller
 
     public function register(Request $request)
     {
-        $request->validate([
+          $validated = $request->validate([
             'name' => 'required|string|max:255',
             'email' => 'required|string|email|max:255|unique:users',
+            'whatsapp_number' => 'required|string|max:20|unique:users',
             'password' => 'required|string|min:8|confirmed',
-            'whatsapp_number' => 'required|string|max:20', // Add validation for whatsapp
         ]);
 
+        // Remove + symbol from WhatsApp number if present
+        $whatsappNumber = str_replace('+', '', $validated['whatsapp_number']);
+
         $user = User::create([
-            'name' => $request->name,
-            'email' => $request->email,
-            'whatsapp_number' => $request->whatsapp_number,
-            'password' => Hash::make($request->password),
+            'name' => $validated['name'],
+            'email' => $validated['email'],
+            'whatsapp_number' => $whatsappNumber,
+            'password' => Hash::make($validated['password']),
         ]);
 
         // Assign default role

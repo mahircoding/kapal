@@ -43,7 +43,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
     });
 
     // Job Application Routes
-    Route::middleware(['role:user'])->prefix('job-application')->name('job-application.')->group(function () {
+    Route::middleware(['role:user', 'whatsapp.verified'])->prefix('job-application')->name('job-application.')->group(function () {
         Route::get('create', [App\Http\Controllers\JobApplicationController::class, 'create'])->name('create');
         Route::post('review', [App\Http\Controllers\JobApplicationController::class, 'review'])->name('review');
         Route::post('store', [App\Http\Controllers\JobApplicationController::class, 'store'])->name('store');

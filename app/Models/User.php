@@ -47,6 +47,7 @@ class User extends Authenticatable implements MustVerifyEmail
     {
         return [
             'email_verified_at' => 'datetime',
+            'whatsapp_verified_at' => 'datetime',
             'password' => 'hashed',
         ];
     }
@@ -66,5 +67,31 @@ class User extends Authenticatable implements MustVerifyEmail
     public function jobApplication()
     {
         return $this->hasOne(JobApplication::class);
+    }
+
+    /**
+     * Determine if the user has verified their WhatsApp number.
+     */
+    public function hasVerifiedWhatsApp(): bool
+    {
+        return !is_null($this->whatsapp_verified_at);
+    }
+
+    /**
+     * Mark the given user's WhatsApp as verified.
+     */
+    public function markWhatsAppAsVerified(): bool
+    {
+        return $this->forceFill([
+            'whatsapp_verified_at' => $this->freshTimestamp(),
+        ])->save();
+    }
+
+    /**
+     * Get the WhatsApp number that should be used for verification.
+     */
+    public function getWhatsAppForVerification(): string
+    {
+        return $this->whatsapp_number;
     }
 }

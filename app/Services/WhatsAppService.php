@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\Log;
 class WhatsAppService
 {
     /**
-     * Send OTP message via WhatsApp (StarSender)
+     * Send OTP via WhatsApp
      *
      * @param string $phone
      * @param string $otp
@@ -17,6 +17,7 @@ class WhatsAppService
      */
     public function sendOTP($phone, $otp): bool
     {
+        // Get API key from settings
         $apiKey = Settings::where('key', 'whatsapp_api_key')->value('value');
 
         if (!$apiKey) {
@@ -24,7 +25,16 @@ class WhatsAppService
             return false;
         }
 
-        $message = "*{$otp}* adalah kode verifikasi Anda. Jangan berikan kode ini kepada siapapun.";
+        if (empty($phone) || empty($otp)) {
+            return false;
+        }
+
+        $siteName = site_name();
+        $siteUrl = config('app.url');
+        
+        $message = "*{$otp}* adalah kode verifikasi Anda untuk *{$siteName}*.\n\n";
+        $message .= "Jangan berikan kode ini kepada siapapun.\n\n";
+        $message .= "Kunjungi: {$siteUrl}";
 
         // Use cURL as per user request snippet, but wrapped in Laravel HTTP client for better testing/mocking if possible.
         // However, user specifically asked for cURL implementation style or at least functionality.

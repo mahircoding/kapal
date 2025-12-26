@@ -56,6 +56,9 @@ class CustomOtpController extends Controller
         // Clear OTP
         Cache::forget($key);
 
+        // Mark WhatsApp as verified
+        $user->markWhatsAppAsVerified();
+
         // Check if email is already verified
         if ($user->hasVerifiedEmail()) {
             // Login user if email already verified
