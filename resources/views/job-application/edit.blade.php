@@ -182,7 +182,7 @@
                                     @error('account_data')
                                         <span class="text-sm text-red-600 dark:text-red-400 mt-1">{{ $message }}</span>
                                     @enderror
-                                    <p class="text-sm text-zinc-500 mt-2">Upload bank book or digital wallet screenshot (e.g., Dana, GoPay)</p>
+                                    <p class="text-sm text-zinc-500 mt-2">Upload screenshot Buku Rekening BCA</p>
                                 </div>
                             </div>
                         </div>

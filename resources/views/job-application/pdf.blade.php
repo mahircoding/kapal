@@ -198,18 +198,21 @@
         <div class="section-title">Documents</div>
         
         @php
-            $documents = [
+            // Documents that will be embedded as images in PDF
+            $imageDocuments = [
                 'ktp_path' => 'KTP',
                 'kk_path' => 'Kartu Keluarga',
+                'medical_certificate_path' => 'Medical Certificate',
+            ];
+            
+            // Documents that will be listed as links/references
+            $pdfDocuments = [
                 'cv_path' => 'CV / Resume',
                 'certificate_path' => '(COC) Certificate of Competency',
                 'coe_path' => 'COE (Certificate of Endorsement)',
-                'medical_certificate_path' => 'Medical Certificate',
                 'buku_pelaut_path' => 'Buku Pelaut',
                 'account_data_path' => 'Account Bank',
             ];
-
-            $imageEmbedFields = ['ktp_path', 'kk_path', 'medical_certificate_path'];
         @endphp
         
         @foreach($imageDocuments as $field => $label)
@@ -241,22 +244,17 @@
             @endif
         @endforeach
         
-        {{-- PDF/Document Files - Text indicator only --}}
-        @if(collect($pdfDocuments)->filter(fn($label, $field) => $application->$field)->isNotEmpty())
-            <div style="margin-top: 20px;">
-                <div style="font-weight: bold; font-size: 14px; margin-bottom: 10px; color: #C97C34;">Other Documents</div>
-                <div class="info-grid">
-                    @foreach($pdfDocuments as $field => $label)
-                        @if($application->$field)
-                            <div class="info-row">
-                                <div class="info-label">{{ $label }}</div>
-                                <div class="info-value">Uploaded (PDF)</div>
-                            </div>
-                        @endif
-                    @endforeach
-                </div>
-            </div>
-        @endif
+        {{-- Other Documents - List only --}}
+        <div style="margin-top: 20px;">
+            <div style="font-weight: bold; font-size: 14px; margin-bottom: 10px; color: #C97C34;">Other Documents</div>
+            <ul style="margin: 0; padding-left: 20px;">
+                @foreach($pdfDocuments as $field => $label)
+                    @if($application->$field)
+                        <li style="margin-bottom: 5px;">{{ $label }}: ✓ Uploaded</li>
+                    @endif
+                @endforeach
+            </ul>
+        </div>
     </div>
 
     <div class="footer">
