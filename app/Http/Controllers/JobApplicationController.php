@@ -182,12 +182,12 @@ class JobApplicationController extends Controller
             'date_of_birth' => $data['date_of_birth'],
             'gender' => $data['gender'],
             'religion' => $data['religion'],
-            'npwp' => $data['npwp'],
+            'npwp' => $data['npwp'] ?? null,
             'address_ktp' => $data['address_ktp'],
             'domicile' => $data['domicile'],
             'position' => $data['position'],
-            'cover_letter' => $data['cover_letter'],
-            'available_interview_date' => $data['available_interview_date'],
+            'cover_letter' => $data['cover_letter'] ?? null,
+            'available_interview_date' => $data['available_interview_date'] ?? null,
             'status' => 'pending', // Reset to pending for re-review
             'admin_note' => null, // Clear admin note
         ], $filePaths));
