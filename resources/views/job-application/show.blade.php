@@ -124,12 +124,12 @@
                                 @endif
                                 @if($application->certificate_path)
                                 <a href="{{ Storage::url($application->certificate_path) }}" target="_blank" class="text-blue-600 hover:underline text-sm flex items-center gap-1">
-                                    <flux:icon name="document-check" size="sm" /> Certificate
+                                    <flux:icon name="document-check" size="sm" /> COC (Certificate of Competency)
                                 </a>
                                 @endif
                                 @if($application->coe_path)
                                 <a href="{{ Storage::url($application->coe_path) }}" target="_blank" class="text-blue-600 hover:underline text-sm flex items-center gap-1">
-                                    <flux:icon name="document-check" size="sm" /> COE
+                                    <flux:icon name="document-check" size="sm" /> COE (Certificate of Endorsement)
                                 </a>
                                 @endif
                                 @if($application->medical_certificate_path)
