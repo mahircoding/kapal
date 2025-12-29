@@ -91,6 +91,17 @@
                         </div>
                         @endif
 
+                        @if(!empty($data['available_interview_date']))
+                        <flux:separator variant="subtle" />
+                        <div>
+                            <flux:heading size="lg" class="mb-4">Interview Availability</flux:heading>
+                            <div>
+                                <flux:label>Available Interview Date</flux:label>
+                                <div class="text-sm font-medium">{{ \Carbon\Carbon::parse($data['available_interview_date'])->format('d F Y') }}</div>
+                            </div>
+                        </div>
+                        @endif
+
                     </div>
 
                     <form method="POST" action="{{ route('job-application.store') }}" class="mt-8 flex justify-end gap-4">
@@ -115,6 +126,7 @@
                         <input type="hidden" name="domicile" value="{{ $data['domicile'] }}">
                         <input type="hidden" name="position" value="{{ $data['position'] }}">
                         <input type="hidden" name="cover_letter" value="{{ $data['cover_letter'] ?? '' }}">
+                        <input type="hidden" name="available_interview_date" value="{{ $data['available_interview_date'] ?? '' }}">
 
                         <flux:button href="{{ route('job-application.create') }}" variant="subtle" wire:navigate>Edit</flux:button>
                         <flux:button variant="primary" type="submit">{{ __('Confirm & Submit') }}</flux:button>
