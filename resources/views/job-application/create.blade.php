@@ -116,13 +116,25 @@
                                 </div>
                                 
                                 <div>
-                                    <flux:input type="file" name="certificate" label="Certificate (COP/COC)" />
+                                    <flux:input type="file" name="certificate" label="(COC) Certificate of Competency" />
                                     @if(isset($uploadedFiles['certificate_path']))
                                         <p class="text-sm text-green-600 dark:text-green-400 mt-1">
                                             ✓ File uploaded: {{ basename($uploadedFiles['certificate_path']) }}
                                         </p>
                                     @endif
                                     @error('certificate')
+                                        <span class="text-sm text-red-600 dark:text-red-400 mt-1">{{ $message }}</span>
+                                    @enderror
+                                </div>
+                                
+                                <div>
+                                    <flux:input type="file" name="coe" label="COE (Certificate of Endorsement)" />
+                                    @if(isset($uploadedFiles['coe_path']))
+                                        <p class="text-sm text-green-600 dark:text-green-400 mt-1">
+                                            ✓ File uploaded: {{ basename($uploadedFiles['coe_path']) }}
+                                        </p>
+                                    @endif
+                                    @error('coe')
                                         <span class="text-sm text-red-600 dark:text-red-400 mt-1">{{ $message }}</span>
                                     @enderror
                                 </div>

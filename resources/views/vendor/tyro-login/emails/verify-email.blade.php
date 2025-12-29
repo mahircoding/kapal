@@ -31,7 +31,7 @@
 <body style="margin: 0; padding: 0; background-color: #f9fafb; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;">
     
     <div style="display: none; max-height: 0; overflow: hidden;">
-        Verify your email address for {{ $appName }}
+        Verifikasi alamat emailmu untuk {{ $appName }}
         &nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;
     </div>
     
@@ -64,7 +64,7 @@
                                 <tr>
                                     <td style="padding-bottom: 28px;">
                                         <p style="margin: 0; font-size: 18px; color: #6b7280; line-height: 1.6;">
-                                            Hi {{ $name }}, you've successfully created a {{ $appName }} account. Please click the button below to verify your email address.
+                                            Hai {{ $name }}, kamu berhasil membuat akun di {{ $appName }}. Klik tombol di bawah untuk memverifikasi alamat emailmu.
                                         </p>
                                     </td>
                                 </tr>
@@ -74,7 +74,7 @@
                                             <tr>
                                                 <td align="center" style="border-radius: 8px; background-color: #111827;">
                                                     <a href="{{ $verificationUrl }}" target="_blank" class="mobile-button" style="display: inline-block; padding: 14px 28px; font-size: 18px; font-weight: 500; color: #ffffff; text-decoration: none; border-radius: 8px;">
-                                                        Verify Email
+                                                        Verifikasi Email
                                                     </a>
                                                 </td>
                                             </tr>
@@ -84,7 +84,7 @@
                                 <tr>
                                     <td>
                                         <p style="margin: 0 0 10px 0; font-size: 15px; color: #9ca3af;">
-                                            Or copy and paste this link into your browser:
+                                            Atau salin dan tempel link ini ke browsermu:
                                         </p>
                                         <p style="margin: 0; font-size: 15px; color: #2563eb; word-break: break-all; line-height: 1.5;">
                                             {{ $verificationUrl }}
@@ -99,7 +99,7 @@
                     <tr>
                         <td align="center" style="padding: 28px 36px; background-color: #f9fafb; border-radius: 0 0 12px 12px;">
                             <p style="margin: 0; font-size: 15px; color: #9ca3af;">
-                                If you didn't create an account, please ignore this email.
+                                Jika kamu tidak membuat akun, tolong abaikan email ini.
                             </p>
                         </td>
                     </tr>

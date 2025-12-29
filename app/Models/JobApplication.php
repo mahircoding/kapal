@@ -19,6 +19,7 @@ class JobApplication extends Model
         'kk_path',
         'cv_path',
         'certificate_path',
+        'coe_path',
         'medical_certificate_path',
         'buku_pelaut_path',
         'account_data_path',

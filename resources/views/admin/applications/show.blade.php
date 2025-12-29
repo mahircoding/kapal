@@ -39,6 +39,12 @@
                                 <flux:label>NPWP</flux:label>
                                 <div class="font-medium mt-1">{{ $application->npwp ?? '-' }}</div>
                             </div>
+                            @if(!empty($application->available_interview_date))
+                            <div>
+                                <flux:label>Available Interview Date</flux:label>
+                                <div class="font-medium mt-1">{{ \Carbon\Carbon::parse($application->available_interview_date)->format('d F Y') }}</div>
+                            </div>
+                            @endif
                             <div class="md:col-span-2">
                                 <flux:label>KTP Address</flux:label>
                                 <div class="font-medium mt-1">{{ $application->address_ktp }}</div>
@@ -53,7 +59,7 @@
 
                         <flux:heading size="md" class="mb-4">Documents</flux:heading>
                         <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
-                        @foreach(['ktp', 'kk', 'cv', 'certificate', 'medical_certificate', 'buku_pelaut', 'account_data'] as $doc)
+                        @foreach(['ktp', 'kk', 'cv', 'certificate', 'coe', 'medical_certificate', 'buku_pelaut', 'account_data'] as $doc)
                                 @if($application->{$doc . '_path'})
                                     <a href="{{ Storage::url($application->{$doc . '_path'}) }}" target="_blank" class="flex items-center gap-3 p-3 border rounded-lg hover:bg-zinc-50 dark:hover:bg-zinc-800 transition">
                                         <flux:icon name="document-text" class="text-zinc-400" />

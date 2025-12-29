@@ -125,13 +125,25 @@
                                 </div>
                                 
                                 <div>
-                                    <flux:input type="file" name="certificate" label="Certificate (COP/COC)" />
+                                    <flux:input type="file" name="certificate" label="(COC) Certificate of Competency" />
                                     @if($application->certificate_path)
                                         <p class="text-sm text-green-600 dark:text-green-400 mt-1">
                                             ✓ Current file: <a href="{{ Storage::url($application->certificate_path) }}" target="_blank" class="underline">{{ basename($application->certificate_path) }}</a>
                                         </p>
                                     @endif
                                     @error('certificate')
+                                        <span class="text-sm text-red-600 dark:text-red-400 mt-1">{{ $message }}</span>
+                                    @enderror
+                                </div>
+                                
+                                <div>
+                                    <flux:input type="file" name="coe" label="COE (Certificate of Endorsement)" />
+                                    @if($application->coe_path)
+                                        <p class="text-sm text-green-600 dark:text-green-400 mt-1">
+                                            ✓ Current file: <a href="{{ Storage::url($application->coe_path) }}" target="_blank" class="underline">{{ basename($application->coe_path) }}</a>
+                                        </p>
+                                    @endif
+                                    @error('coe')
                                         <span class="text-sm text-red-600 dark:text-red-400 mt-1">{{ $message }}</span>
                                     @enderror
                                 </div>

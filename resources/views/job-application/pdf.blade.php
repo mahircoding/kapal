@@ -198,21 +198,20 @@
         <div class="section-title">Documents</div>
         
         @php
-            $imageDocuments = [
-                'ktp_path' => 'KTP (Kartu Tanda Penduduk)',
-                'kk_path' => 'Kartu Keluarga (KK)',
-                'medical_certificate_path' => 'Medical Certificate',
-            ];
-            
-            $pdfDocuments = [
+            $documents = [
+                'ktp_path' => 'KTP',
+                'kk_path' => 'Kartu Keluarga',
                 'cv_path' => 'CV / Resume',
-                'certificate_path' => 'Certificate (COP/COC)',
+                'certificate_path' => '(COC) Certificate of Competency',
+                'coe_path' => 'COE (Certificate of Endorsement)',
+                'medical_certificate_path' => 'Medical Certificate',
                 'buku_pelaut_path' => 'Buku Pelaut',
                 'account_data_path' => 'Account Bank',
             ];
+
+            $imageEmbedFields = ['ktp_path', 'kk_path', 'medical_certificate_path'];
         @endphp
         
-        {{-- Image Documents - Embed in PDF --}}
         @foreach($imageDocuments as $field => $label)
             @if($application->$field)
                 @php

@@ -163,7 +163,7 @@ class JobApplicationController extends Controller
         ]);
 
         // Handle file uploads - keep old files if not replaced
-        $files = ['ktp', 'kk', 'cv', 'certificate', 'medical_certificate', 'buku_pelaut', 'account_data'];
+        $files = ['ktp', 'kk', 'cv', 'certificate', 'coe', 'medical_certificate', 'buku_pelaut', 'account_data'];
         $filePaths = [];
 
         foreach ($files as $file) {

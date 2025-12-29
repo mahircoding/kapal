@@ -54,6 +54,25 @@
                         </div>
                         @endif
 
+                        @if($application->cover_letter)
+                        <flux:separator variant="subtle" />
+                        <div>
+                            <flux:heading size="lg" class="mb-4">Cover Letter</flux:heading>
+                            <div class="text-sm whitespace-pre-wrap">{{ $application->cover_letter }}</div>
+                        </div>
+                        @endif
+
+                        @if(!empty($application->available_interview_date))
+                        <flux:separator variant="subtle" />
+                        <div>
+                            <flux:heading size="lg" class="mb-4">Interview Availability</flux:heading>
+                            <div>
+                                <flux:label>Available Interview Date</flux:label>
+                                <div class="text-sm font-medium">{{ \Carbon\Carbon::parse($application->available_interview_date)->format('d F Y') }}</div>
+                            </div>
+                        </div>
+                        @endif
+
                         <flux:separator variant="subtle" class="my-4"/>
 
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -69,7 +88,9 @@
                                     @if($application->npwp)
                                     <li><strong>NPWP:</strong> {{ $application->npwp }}</li>
                                     @endif
+                                    @if(!empty($application->available_interview_date))
                                     <li><strong>Available Interview Date:</strong> {{ \Carbon\Carbon::parse($application->available_interview_date)->format('d M Y') }}</li>
+                                    @endif
                                 </ul>
                             </div>
                             <div>
@@ -103,7 +124,12 @@
                                 @endif
                                 @if($application->certificate_path)
                                 <a href="{{ Storage::url($application->certificate_path) }}" target="_blank" class="text-blue-600 hover:underline text-sm flex items-center gap-1">
-                                    <flux:icon name="academic-cap" size="sm" /> Certificate
+                                    <flux:icon name="document-check" size="sm" /> Certificate
+                                </a>
+                                @endif
+                                @if($application->coe_path)
+                                <a href="{{ Storage::url($application->coe_path) }}" target="_blank" class="text-blue-600 hover:underline text-sm flex items-center gap-1">
+                                    <flux:icon name="document-check" size="sm" /> COE
                                 </a>
                                 @endif
                                 @if($application->medical_certificate_path)
