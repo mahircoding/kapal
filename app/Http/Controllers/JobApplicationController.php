@@ -172,7 +172,13 @@ class JobApplicationController extends Controller
                 if ($application->{$file . '_path'}) {
                     \Storage::disk('public')->delete($application->{$file . '_path'});
                 }
+                // Upload new file
                 $filePaths[$file . '_path'] = $request->file($file)->store('documents/' . $file . 's', 'public');
+            } else {
+                // Keep old file if no new file uploaded
+                if ($application->{$file . '_path'}) {
+                    $filePaths[$file . '_path'] = $application->{$file . '_path'};
+                }
             }
         }
 
