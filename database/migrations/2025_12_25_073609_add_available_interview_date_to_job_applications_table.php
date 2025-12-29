@@ -11,9 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::table('job_applications', function (Blueprint $table) {
-            $table->date('available_interview_date')->nullable()->after('cover_letter');
-        });
+        if (!Schema::hasColumn('job_applications', 'available_interview_date')) {
+            Schema::table('job_applications', function (Blueprint $table) {
+                $table->date('available_interview_date')->nullable()->after('cover_letter');
+            });
+        }
     }
 
     /**
@@ -22,7 +24,7 @@ return new class extends Migration
     public function down(): void
     {
         Schema::table('job_applications', function (Blueprint $table) {
-            //
+            $table->dropColumn('available_interview_date');
         });
     }
 };
