@@ -4,12 +4,12 @@
             <div class="overflow-hidden sm:rounded-lg">
                 <div class="p-6 text-gray-900">
                     <div class="relative mb-6 w-full">
-                        <flux:heading size="xl" level="1">{{ __('Edit Your Application') }}</flux:heading>
-                        <flux:subheading size="lg" class="mb-6">{{ __('Update your information based on the feedback below.') }}</flux:subheading>
+                        <flux:heading size="xl" level="1">{{ __('Update Lamaran Anda') }}</flux:heading>
+                        <flux:subheading size="lg" class="mb-6">{{ __('Update informasi Anda berdasarkan feedback di bawah ini.') }}</flux:subheading>
                         
                         @if($application->admin_note)
                         <div class="mb-6 p-4 bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-800 rounded-lg">
-                            <flux:heading size="md" class="text-blue-800 dark:text-blue-200 mb-2">Feedback from HRD:</flux:heading>
+                            <flux:heading size="md" class="text-blue-800 dark:text-blue-200 mb-2">Feedback dari HRD:</flux:heading>
                             <p class="text-blue-700 dark:text-blue-300">{{ $application->admin_note }}</p>
                         </div>
                         @endif
@@ -48,11 +48,11 @@
 
 
                         <!-- Tax Information -->
-                        <div class="mb-4 mt-4">
+                        {{-- <div class="mb-4 mt-4">
                             <flux:heading size="lg" class="mb-4 mt-4">Tax Information</flux:heading>
                             <flux:input name="npwp" label="NPWP (Nomor Pokok Wajib Pajak)" placeholder="e.g., 12.345.678.9-012.000" value="{{ old('npwp', $application->npwp) }}" />
                             <p class="text-sm text-zinc-500 mt-2">Optional - Enter your tax identification number if available</p>
-                        </div>
+                        </div> --}}
 
                         <flux:separator variant="subtle" />
 
@@ -60,8 +60,8 @@
                         <div>
                             <flux:heading size="lg" class="mb-4 mt-4">Alamat</flux:heading>
                             <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                                <flux:textarea name="address_ktp" label="Address (KTP)" required>{{ old('address_ktp', $application->address_ktp) }}</flux:textarea>
-                                <flux:textarea name="domicile" label="Current Domisili" required>{{ old('domicile', $application->domicile) }}</flux:textarea>
+                                <flux:textarea name="address_ktp" label="Alamat (KTP)" required>{{ old('address_ktp', $application->address_ktp) }}</flux:textarea>
+                                <flux:textarea name="domicile" label="Domisili" required>{{ old('domicile', $application->domicile) }}</flux:textarea>
                             </div>
                         </div>
 
@@ -107,7 +107,7 @@
                                     @error('npwp')
                                         <span class="text-sm text-red-600 dark:text-red-400 mt-1">{{ $message }}</span>
                                     @enderror
-                                    <p class="text-sm text-zinc-500 mt-2">Upload foto NPWP baru (JPG, PNG, atau PDF) - Kosongkan jika tidak ingin mengubah</p>
+                                    <p class="text-sm text-zinc-500 mt-2">Upload foto NPWP baru (JPG, PNG, atau PDF)</p>
                                 </div>
                             </div>
                         </div>

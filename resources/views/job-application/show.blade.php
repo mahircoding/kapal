@@ -39,7 +39,7 @@
                         <div class="mb-6 p-4 bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-800 rounded-lg">
                             <div class="flex items-start justify-between">
                                 <div class="flex-1">
-                                    <flux:heading size="md" class="text-blue-800 dark:text-blue-200 mb-2">Feedback from HRD:</flux:heading>
+                                    <flux:heading size="md" class="text-blue-800 dark:text-blue-200 mb-2">Feedback dari HRD:</flux:heading>
                                     <p class="text-blue-700 dark:text-blue-300">{{ $application->admin_note }}</p>
                                 </div>
                             </div>

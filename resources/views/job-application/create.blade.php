@@ -4,8 +4,8 @@
             <div class="overflow-hidden sm:rounded-lg">
                 <div class="p-6 text-gray-900">
                     <div class="relative mb-6 w-full">
-                        <flux:heading size="xl" level="1">{{ __('Apply for a Position') }}</flux:heading>
-                        <flux:subheading size="lg" class="mb-6">{{ __('Complete your profile and submit your documents.') }}</flux:subheading>
+                        <flux:heading size="xl" level="1">{{ __('Kirim Lamaran') }}</flux:heading>
+                        <flux:subheading size="lg" class="mb-6">{{ __('Lengkapi profil dan submit dokumen.') }}</flux:subheading>
                         <flux:separator variant="subtle" />
                     </div>
 
@@ -14,7 +14,7 @@
 
                         <!-- Personal Information -->
                         <div>
-                            <flux:heading size="lg" class="mb-4">Personal Information</flux:heading>
+                            <flux:heading size="lg" class="mb-4">Informasi Pribadi</flux:heading>
                             <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                                 <flux:input name="place_of_birth" label="Tempat Lahir" value="{{ old('place_of_birth') }}" required />
                                 <flux:input type="date" name="date_of_birth" label="Tanggal Lahir" value="{{ old('date_of_birth') }}" required />
@@ -38,8 +38,9 @@
                         <flux:separator variant="subtle" />
 
 
-                        <!-- Tax Information -->\n                        <div class="mb-4 mt-4">
-                            <flux:heading size="lg" class="mb-4 mt-4">Tax Information</flux:heading>
+                        <!-- Tax Information -->         
+                        <div class="mb-4 mt-4">
+                            <flux:heading size="lg" class="mb-4 mt-4">Informasi Pajak</flux:heading>
                             <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                                 <!-- NPWP Upload -->
                                 <div>
@@ -48,7 +49,7 @@
                                     @error('npwp')
                                         <span class="text-sm text-red-600 dark:text-red-400 mt-1">{{ $message }}</span>
                                     @enderror
-                                    <p class="text-sm text-zinc-500 mt-2">Upload foto NPWP (JPG, PNG, atau PDF) - Optional</p>
+                                    <p class="text-sm text-zinc-500 mt-2">Upload foto NPWP (JPG, PNG, atau PDF)</p>
                                 </div>
                             </div>
                         </div>
@@ -59,8 +60,8 @@
                         <div>
                             <flux:heading size="lg" class="mb-4 mt-4">Alamat</flux:heading>
                             <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                                <flux:textarea name="address_ktp" label="Address (KTP)" required>{{ old('address_ktp') }}</flux:textarea>
-                                <flux:textarea name="domicile" label="Current Domisili" required>{{ old('domicile') }}</flux:textarea>
+                                <flux:textarea name="address_ktp" label="Alamat KTP" required>{{ old('address_ktp') }}</flux:textarea>
+                                <flux:textarea name="domicile" label="Domisili" required>{{ old('domicile') }}</flux:textarea>
                             </div>
                         </div>
 
@@ -70,7 +71,7 @@
                         <div>
                             <flux:heading size="lg" class="mb-4 mt-4">Posisi</flux:heading>
                             <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                                <flux:select name="position" label="Position Applied For" placeholder="Select Position" required>
+                                <flux:select name="position" label="Posisi yang Dilamar" placeholder="Select Position" required>
                                     <option value="Master" {{ old('position') == 'Master' ? 'selected' : '' }}>Master</option>
                                     <option value="Chief Officer" {{ old('position') == 'Chief Officer' ? 'selected' : '' }}>Chief Officer</option>
                                     <option value="Third Officer" {{ old('position') == 'Third Officer' ? 'selected' : '' }}>Third Officer</option>
@@ -84,7 +85,7 @@
                                     <option value="Cadet" {{ old('position') == 'Cadet' ? 'selected' : '' }}>Cadet</option>
                                 </flux:select>
                                 
-                                <flux:input type="date" name="available_interview_date" label="Available Interview Date" value="{{ old('available_interview_date') }}" required />
+                                <flux:input type="date" name="available_interview_date" label="Tanggal Waktu Wawancara yang Tersedia" value="{{ old('available_interview_date') }}" required />
                             </div>
                         </div>
 
@@ -92,7 +93,7 @@
 
                         <!-- Documents -->
                         <div class="mb-4 mt-4">
-                            <flux:heading size="lg" class="mb-4 mt-4">Documents</flux:heading>
+                            <flux:heading size="lg" class="mb-4 mt-4">Dokumen</flux:heading>
                             <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                                 <div>
                                     <flux:input type="file" name="ktp" label="KTP Scan" :required="!isset($uploadedFiles['ktp_path'])" />
@@ -201,7 +202,7 @@
                         </div> -->
 
                         <div class="flex justify-end pt-6 mt-4">
-                            <flux:button variant="primary" type="submit" class="w-full md:w-auto">{{ __('Submit Application') }}</flux:button>
+                            <flux:button variant="primary" type="submit" class="w-full md:w-auto">{{ __('Kirim Lamaran') }}</flux:button>
                         </div>
                     </form>
                 </div>
