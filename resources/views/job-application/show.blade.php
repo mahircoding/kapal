@@ -1,11 +1,11 @@
-<x-layouts.app title="My Application">
+<x-layouts.app title="Lamaran Saya">
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="overflow-hidden sm:rounded-lg">
                 <div class="p-6 text-gray-900">
                     <div class="relative mb-6 w-full">
-                        <flux:heading size="xl" level="1">{{ __('My Application Status') }}</flux:heading>
-                        <flux:subheading size="lg" class="mb-6">{{ __('Track your application progress.') }}</flux:subheading>
+                        <flux:heading size="xl" level="1">{{ __('Status Lamaran Saya') }}</flux:heading>
+                        <flux:subheading size="lg" class="mb-6">{{ __('Pantau perkembangan lamaran.') }}</flux:subheading>
                         <flux:separator variant="subtle" />
                     </div>
 
@@ -13,7 +13,7 @@
                         <div class="flex items-center justify-between mb-6">
                             <div>
                                 <h3 class="text-lg font-semibold">{{ $application->position }}</h3>
-                                <p class="text-sm text-gray-500">Applied on {{ $application->created_at->format('d M Y') }}</p>
+                                <p class="text-sm text-gray-500">Lamaran masuk {{ $application->created_at->format('d M Y') }}</p>
                             </div>
                             <div class="flex items-center gap-3">
                                 <span class="px-3 py-1 rounded-full text-xs font-semibold
@@ -77,14 +77,14 @@
 
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                             <div>
-                                <h4 class="font-medium mb-2 mt-2">Personal Details</h4>
+                                <h4 class="font-medium mb-2 mt-2">Informasi Pribadi</h4>
                                 <ul class="space-y-2 text-sm">
                                     <li><strong>Name:</strong> {{ auth()->user()->name }}</li>
                                     <li><strong>Email:</strong> {{ auth()->user()->email }}</li>
-                                    <li><strong>Place of Birth:</strong> {{ $application->place_of_birth }}</li>
-                                    <li><strong>Date of Birth:</strong> {{ $application->date_of_birth }}</li>
-                                    <li><strong>Gender:</strong> {{ $application->gender }}</li>
-                                    <li><strong>Religion:</strong> {{ $application->religion }}</li>
+                                    <li><strong>Tempat Lahir:</strong> {{ $application->place_of_birth }}</li>
+                                    <li><strong>Tanggal Lahir:</strong> {{ $application->date_of_birth }}</li>
+                                    <li><strong>Jenis Kelamin:</strong> {{ $application->gender }}</li>
+                                    <li><strong>Agama:</strong> {{ $application->religion }}</li>
                                     @if($application->npwp)
                                     <li><strong>NPWP:</strong> {{ $application->npwp }}</li>
                                     @endif
@@ -94,10 +94,10 @@
                                 </ul>
                             </div>
                             <div>
-                                <h4 class="font-medium mb-2 mt-2">Address</h4>
+                                <h4 class="font-medium mb-2 mt-2">Alamat</h4>
                                 <ul class="space-y-2 text-sm">
                                     <li><strong>KTP:</strong> {{ $application->address_ktp }}</li>
-                                    <li><strong>Domicile:</strong> {{ $application->domicile }}</li>
+                                    <li><strong>Domisili:</strong> {{ $application->domicile }}</li>
                                 </ul>
                             </div>
                         </div>

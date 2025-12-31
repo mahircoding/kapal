@@ -16,15 +16,15 @@
                         <div>
                             <flux:heading size="lg" class="mb-4">Personal Information</flux:heading>
                             <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                                <flux:input name="place_of_birth" label="Place of Birth" value="{{ old('place_of_birth') }}" required />
-                                <flux:input type="date" name="date_of_birth" label="Date of Birth" value="{{ old('date_of_birth') }}" required />
+                                <flux:input name="place_of_birth" label="Tempat Lahir" value="{{ old('place_of_birth') }}" required />
+                                <flux:input type="date" name="date_of_birth" label="Tanggal Lahir" value="{{ old('date_of_birth') }}" required />
                                 
-                                <flux:select name="gender" label="Gender" placeholder="Select Gender" required>
+                                <flux:select name="gender" label="Jenis Kelamin" placeholder="Select Jenis Kelamin" required>
                                     <option value="Laki-laki" {{ old('gender') == 'Laki-laki' ? 'selected' : '' }}>Laki-laki</option>
                                     <option value="Perempuan" {{ old('gender') == 'Perempuan' ? 'selected' : '' }}>Perempuan</option>
                                 </flux:select>
 
-                                <flux:select name="religion" label="Religion" placeholder="Select Religion" required>
+                                <flux:select name="religion" label="Agama" placeholder="Select Agama" required>
                                     <option value="Islam" {{ old('religion') == 'Islam' ? 'selected' : '' }}>Islam</option>
                                     <option value="Kristen" {{ old('religion') == 'Kristen' ? 'selected' : '' }}>Kristen</option>
                                     <option value="Hindu" {{ old('religion') == 'Hindu' ? 'selected' : '' }}>Hindu</option>
@@ -49,10 +49,10 @@
 
                         <!-- Address -->
                         <div>
-                            <flux:heading size="lg" class="mb-4 mt-4">Address</flux:heading>
+                            <flux:heading size="lg" class="mb-4 mt-4">Alamat</flux:heading>
                             <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                                 <flux:textarea name="address_ktp" label="Address (KTP)" required>{{ old('address_ktp') }}</flux:textarea>
-                                <flux:textarea name="domicile" label="Current Domicile" required>{{ old('domicile') }}</flux:textarea>
+                                <flux:textarea name="domicile" label="Current Domisili" required>{{ old('domicile') }}</flux:textarea>
                             </div>
                         </div>
 
@@ -60,7 +60,7 @@
 
                         <!-- Job Details -->
                         <div>
-                            <flux:heading size="lg" class="mb-4 mt-4">Position</flux:heading>
+                            <flux:heading size="lg" class="mb-4 mt-4">Posisi</flux:heading>
                             <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                                 <flux:select name="position" label="Position Applied For" placeholder="Select Position" required>
                                     <option value="Master" {{ old('position') == 'Master' ? 'selected' : '' }}>Master</option>

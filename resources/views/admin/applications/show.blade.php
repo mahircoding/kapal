@@ -20,15 +20,15 @@
 
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                             <div>
-                                <flux:label>Place & Date of Birth</flux:label>
+                                <flux:label>Place & Tanggal Lahir</flux:label>
                                 <div class="font-medium mt-1">{{ $application->place_of_birth }}, {{ \Carbon\Carbon::parse($application->date_of_birth)->format('d M Y') }}</div>
                             </div>
                             <div>
-                                <flux:label>Gender</flux:label>
+                                <flux:label>Jenis Kelamin</flux:label>
                                 <div class="font-medium mt-1">{{ $application->gender }}</div>
                             </div>
                             <div>
-                                <flux:label>Religion</flux:label>
+                                <flux:label>Agama</flux:label>
                                 <div class="font-medium mt-1">{{ $application->religion }}</div>
                             </div>
                             <div>
@@ -46,11 +46,11 @@
                             </div>
                             @endif
                             <div class="md:col-span-2">
-                                <flux:label>KTP Address</flux:label>
+                                <flux:label>Alamat (KTP)</flux:label>
                                 <div class="font-medium mt-1">{{ $application->address_ktp }}</div>
                             </div>
                             <div class="md:col-span-2">
-                                <flux:label>Domicile Address</flux:label>
+                                <flux:label>Alamat Domisili</flux:label>
                                 <div class="font-medium mt-1">{{ $application->domicile }}</div>
                             </div>
                         </div>

@@ -122,15 +122,15 @@
 
                 <!-- Submit Button -->
                 <button type="submit" class="btn btn-primary" style="margin-top: 0.5rem;">
-                    Create account
+                    Bikin akun
                 </button>
             </form>
 
             <!-- Login Link -->
             <div class="form-footer">
                 <p>
-                    Already have an account?
-                    <a href="{{ route('login') }}" class="form-link">Log in</a>
+                    Sudah punya akun?
+                    <a href="{{ route('login') }}" class="form-link">Masuk</a>
                 </p>
             </div>
 

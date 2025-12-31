@@ -22,7 +22,7 @@
                         <flux:icon name="document-text" class="text-blue-600 dark:text-blue-400" size="lg" />
                     </div>
                     <div>
-                        <div class="text-sm text-zinc-500 dark:text-zinc-400">Application Status</div>
+                        <div class="text-sm text-zinc-500 dark:text-zinc-400">Status Lamaran</div>
                         <div class="text-xl font-bold">
                             @if(auth()->user()->jobApplication)
                                 {{ ucfirst(auth()->user()->jobApplication->status) }}
@@ -60,7 +60,7 @@
                         <flux:icon name="briefcase" class="text-purple-600 dark:text-purple-400" size="lg" />
                     </div>
                     <div>
-                        <div class="text-sm text-zinc-500 dark:text-zinc-400">Position Applied</div>
+                        <div class="text-sm text-zinc-500 dark:text-zinc-400">Posisi yang Dilamar</div>
                         <div class="text-lg font-bold">
                             @if(auth()->user()->jobApplication)
                                 {{ auth()->user()->jobApplication->position }}
@@ -75,7 +75,7 @@
 
         <!-- Quick Actions -->
         <div class="bg-white dark:bg-zinc-800 rounded-xl p-6 border border-zinc-200 dark:border-zinc-700 shadow-sm">
-            <h2 class="text-lg font-semibold mb-4">Quick Actions</h2>
+            <h2 class="text-lg font-semibold mb-4">Tindakan cepat</h2>
             <div class="flex flex-wrap gap-3">
                 @if(!auth()->user()->jobApplication)
                 <flux:button href="{{ route('job-application.create') }}" variant="primary" wire:navigate>
@@ -87,7 +87,7 @@
                 </flux:button>
                 @endif
                 <flux:button href="{{ route('profile.edit') }}" variant="outline" wire:navigate>
-                    <flux:icon name="user" size="sm" /> Edit Profile
+                    <flux:icon name="user" size="sm" /> Edit Profil
                 </flux:button>
             </div>
         </div>
@@ -159,7 +159,7 @@
 
         <!-- Quick Actions for Admin/HRD -->
         <div class="bg-white dark:bg-zinc-800 rounded-xl p-6 border border-zinc-200 dark:border-zinc-700 shadow-sm">
-            <h2 class="text-lg font-semibold mb-4">Quick Actions</h2>
+            <h2 class="text-lg font-semibold mb-4">Tindakan cepat</h2>
             <div class="flex flex-wrap gap-3">
                 <flux:button href="{{ route('admin.applications.index') }}" variant="primary" wire:navigate>
                     <flux:icon name="document-text" size="sm" /> View Applications

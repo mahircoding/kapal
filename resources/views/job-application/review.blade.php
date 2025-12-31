@@ -15,19 +15,19 @@
                             <flux:heading size="lg" class="mb-4">Personal Information</flux:heading>
                             <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                                 <div>
-                                    <flux:label>Place of Birth</flux:label>
+                                    <flux:label>Tempat Lahir</flux:label>
                                     <div class="text-sm font-medium">{{ $data['place_of_birth'] }}</div>
                                 </div>
                                 <div>
-                                    <flux:label>Date of Birth</flux:label>
+                                    <flux:label>Tanggal Lahir</flux:label>
                                     <div class="text-sm font-medium">{{ $data['date_of_birth'] }}</div>
                                 </div>
                                 <div>
-                                    <flux:label>Gender</flux:label>
+                                    <flux:label>Jenis Kelamin</flux:label>
                                     <div class="text-sm font-medium">{{ $data['gender'] }}</div>
                                 </div>
                                 <div>
-                                    <flux:label>Religion</flux:label>
+                                    <flux:label>Agama</flux:label>
                                     <div class="text-sm font-medium">{{ $data['religion'] }}</div>
                                 </div>
                                 @if(!empty($data['npwp']))
@@ -43,14 +43,14 @@
 
                         <!-- Address -->
                         <div>
-                            <flux:heading size="lg" class="mb-4">Address</flux:heading>
+                            <flux:heading size="lg" class="mb-4">Alamat</flux:heading>
                             <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                                 <div>
-                                    <flux:label>Address (KTP)</flux:label>
+                                    <flux:label>Alamat (KTP)</flux:label>
                                     <div class="text-sm font-medium">{{ $data['address_ktp'] }}</div>
                                 </div>
                                 <div>
-                                    <flux:label>Domicile</flux:label>
+                                    <flux:label>Domisili</flux:label>
                                     <div class="text-sm font-medium">{{ $data['domicile'] }}</div>
                                 </div>
                             </div>
@@ -60,9 +60,9 @@
 
                         <!-- Position -->
                          <div>
-                            <flux:heading size="lg" class="mb-4">Position</flux:heading>
+                            <flux:heading size="lg" class="mb-4">Posisi yang Dilamar</flux:heading>
                             <div>
-                                <flux:label>Position Applied For</flux:label>
+                                <flux:label>Posisi yang Dilamar</flux:label>
                                 <div class="text-sm font-medium">{{ $data['position'] }}</div>
                             </div>
                         </div>

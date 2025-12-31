@@ -19,7 +19,7 @@
                 <flux:navlist.group :heading="__('Menu')" class="grid">
                     <flux:navlist.item icon="home" :href="route('dashboard')" :current="request()->routeIs('dashboard')" wire:navigate>{{ __('Dashboard') }}</flux:navlist.item>
                     @if(auth()->user()->hasRole('user'))
-                    <flux:navlist.item icon="document-text" :href="route('job-application.create')" :current="request()->routeIs('job-application.*')" wire:navigate>{{ __('My Application') }}</flux:navlist.item>
+                    <flux:navlist.item icon="document-text" :href="route('job-application.create')" :current="request()->routeIs('job-application.*')" wire:navigate>{{ __('Lamaran Saya') }}</flux:navlist.item>
                     @endif
                     @role('admin')
                     <flux:navlist.item icon="users" :href="route('admin.applications.index')" :current="request()->routeIs('admin.applications.*')" wire:navigate>{{ __('Job Applications') }}</flux:navlist.item>

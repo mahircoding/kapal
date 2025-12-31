@@ -103,11 +103,11 @@
     <div class="header">
         <h1>JOB APPLICATION</h1>
         <p>{{ $application->position }}</p>
-        <p>Application Date: {{ $application->created_at->format('d F Y') }}</p>
+        <p>Tanggal Lamaran: {{ $application->created_at->format('d F Y') }}</p>
     </div>
 
     <div class="section">
-        <div class="section-title">Application Status</div>
+        <div class="section-title">Status Lamaran</div>
         <div class="info-grid">
             <div class="info-row">
                 <div class="info-label">Status</div>
@@ -127,10 +127,10 @@
     </div>
 
     <div class="section">
-        <div class="section-title">Personal Information</div>
+        <div class="section-title">Informasi Pribadi</div>
         <div class="info-grid">
             <div class="info-row">
-                <div class="info-label">Full Name</div>
+                <div class="info-label">Nama Lengkap</div>
                 <div class="info-value">{{ $application->user->name }}</div>
             </div>
             <div class="info-row">
@@ -138,23 +138,23 @@
                 <div class="info-value">{{ $application->user->email }}</div>
             </div>
             <div class="info-row">
-                <div class="info-label">WhatsApp Number</div>
+                <div class="info-label">Nomor WhatsApp</div>
                 <div class="info-value">{{ $application->user->whatsapp_number ?? '-' }}</div>
             </div>
             <div class="info-row">
-                <div class="info-label">Place of Birth</div>
+                <div class="info-label">Tempat Lahir</div>
                 <div class="info-value">{{ $application->place_of_birth }}</div>
             </div>
             <div class="info-row">
-                <div class="info-label">Date of Birth</div>
+                <div class="info-label">Tanggal Lahir</div>
                 <div class="info-value">{{ \Carbon\Carbon::parse($application->date_of_birth)->format('d F Y') }}</div>
             </div>
             <div class="info-row">
-                <div class="info-label">Gender</div>
+                <div class="info-label">Jenis Kelamin</div>
                 <div class="info-value">{{ $application->gender }}</div>
             </div>
             <div class="info-row">
-                <div class="info-label">Religion</div>
+                <div class="info-label">Agama</div>
                 <div class="info-value">{{ $application->religion }}</div>
             </div>
             @if($application->npwp)
@@ -167,35 +167,35 @@
     </div>
 
     <div class="section">
-        <div class="section-title">Address</div>
+        <div class="section-title">Alamat</div>
         <div class="info-grid">
             <div class="info-row">
-                <div class="info-label">KTP Address</div>
+                <div class="info-label">Alamat KTP</div>
                 <div class="info-value">{{ $application->address_ktp }}</div>
             </div>
             <div class="info-row">
-                <div class="info-label">Domicile Address</div>
+                <div class="info-label">Alamat Domisili</div>
                 <div class="info-value">{{ $application->domicile }}</div>
             </div>
         </div>
     </div>
 
     <div class="section">
-        <div class="section-title">Position & Interview</div>
+        <div class="section-title">Posisi & Waktu Wawancara</div>
         <div class="info-grid">
             <div class="info-row">
-                <div class="info-label">Position Applied For</div>
+                <div class="info-label">Posisi yang Dilamar</div>
                 <div class="info-value">{{ $application->position }}</div>
             </div>
             <div class="info-row">
-                <div class="info-label">Available Interview Date</div>
+                <div class="info-label">Tanggal Wawancara yang Tersedia</div>
                 <div class="info-value">{{ \Carbon\Carbon::parse($application->available_interview_date)->format('d F Y') }}</div>
             </div>
         </div>
     </div>
 
     <div class="section">
-        <div class="section-title">Documents</div>
+        <div class="section-title">Dokumen</div>
         
         @php
             // Documents that will be embedded as images in PDF

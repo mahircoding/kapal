@@ -18,7 +18,7 @@
                 
                 @if(auth()->user()->hasRole('user'))
                 <flux:navbar.item icon="document-text" :href="route('job-application.create')" :current="request()->routeIs('job-application.*')" wire:navigate>
-                    {{ __('My Application') }}
+                    {{ __('Lamaran Saya') }}
                 </flux:navbar.item>
                 @endif
             </flux:navbar>
@@ -92,7 +92,7 @@
                     
                     @if(auth()->user()->hasRole('user'))
                     <flux:navlist.item icon="document-text" :href="route('job-application.create')" :current="request()->routeIs('job-application.*')" wire:navigate>
-                    {{ __('My Application') }}
+                    {{ __('Lamaran Saya') }}
                     </flux:navlist.item>
                     @endif
                 </flux:navlist.group>
