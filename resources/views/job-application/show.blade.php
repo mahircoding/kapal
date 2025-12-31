@@ -84,8 +84,8 @@
                                     <li><strong>Tanggal Lahir:</strong> {{ $application->date_of_birth }}</li>
                                     <li><strong>Jenis Kelamin:</strong> {{ $application->gender }}</li>
                                     <li><strong>Agama:</strong> {{ $application->religion }}</li>
-                                    @if($application->npwp)
-                                    <li><strong>NPWP:</strong> {{ $application->npwp }}</li>
+                                    @if($application->npwp_path)
+                                    <li><strong>NPWP:</strong> <a href="{{ Storage::url($application->npwp_path) }}" target="_blank" class="text-blue-600 hover:underline">Lihat File</a></li>
                                     @endif
                                     @if(!empty($application->available_interview_date))
                                     <li><strong>Tanggal Wawancara:</strong> {{ \Carbon\Carbon::parse($application->available_interview_date)->format('d M Y') }}</li>

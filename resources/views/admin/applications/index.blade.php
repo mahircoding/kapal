@@ -5,18 +5,18 @@
                 <div class="p-6 text-gray-900">
                     <div class="flex justify-between items-center mb-6">
                         <div>
-                            <flux:heading size="xl" level="1">{{ __('Job Applications') }}</flux:heading>
-                            <flux:subheading size="lg">{{ __('Manage and review applicant submissions') }}</flux:subheading>
+                            <flux:heading size="xl" level="1">{{ __('Lamaran Pekerjaan') }}</flux:heading>
+                            <flux:subheading size="lg">{{ __('Kelola dan tinjau pengajuan lamaran') }}</flux:subheading>
                         </div>
                     </div>
 
                     <!-- Filters -->
                     <form method="GET" action="{{ route('admin.applications.index') }}" class="mb-6 flex gap-4 max-w-2xl">
-                        <flux:input icon="magnifying-glass" type="search" name="search" placeholder="Search by name or email..." value="{{ request('search') }}" class="w-full" />
+                        <flux:input icon="magnifying-glass" type="search" name="search" placeholder="Cari berdasarkan nama atau email..." value="{{ request('search') }}" class="w-full" />
                         
                         <div class="w-48">
                             <flux:select placeholder="Status" name="status" :value="request('status', 'all')">
-                                <option value="all">All Status</option>
+                                <option value="all">Semua Status</option>
                                 <option value="pending">Pending</option>
                                 <option value="reviewed">Reviewed</option>
                                 <option value="accepted">Accepted</option>
@@ -34,11 +34,11 @@
                         <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
                             <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-zinc-800 dark:text-gray-400">
                                 <tr>
-                                    <th scope="col" class="px-6 py-3">Applicant</th>
-                                    <th scope="col" class="px-6 py-3">Position</th>
-                                    <th scope="col" class="px-6 py-3">Date Applied</th>
+                                    <th scope="col" class="px-6 py-3">Pelamar</th>
+                                    <th scope="col" class="px-6 py-3">Posisi</th>
+                                    <th scope="col" class="px-6 py-3">Tanggal</th>
                                     <th scope="col" class="px-6 py-3">Status</th>
-                                    <th scope="col" class="px-6 py-3">Actions</th>
+                                    <th scope="col" class="px-6 py-3">Aksi</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -62,7 +62,7 @@
                                             <span class="{{ $badgeClasses }} text-xs font-medium me-2 px-2.5 py-0.5 rounded">{{ ucfirst($application->status) }}</span>
                                         </td>
                                         <td class="px-6 py-4">
-                                            <flux:button variant="ghost" size="sm" icon="eye" :href="route('admin.applications.show', $application)">View</flux:button>
+                                            <flux:button variant="ghost" size="sm" icon="eye" :href="route('admin.applications.show', $application)">Lihat</flux:button>
                                         </td>
                                     </tr>
                                 @empty

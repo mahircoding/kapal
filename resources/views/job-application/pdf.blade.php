@@ -157,10 +157,10 @@
                 <div class="info-label">Agama</div>
                 <div class="info-value">{{ $application->religion }}</div>
             </div>
-            @if($application->npwp)
+            @if($application->npwp_path)
             <div class="info-row">
                 <div class="info-label">NPWP</div>
-                <div class="info-value">{{ $application->npwp }}</div>
+                <div class="info-value">Uploaded</div>
             </div>
             @endif
         </div>

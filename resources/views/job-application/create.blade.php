@@ -38,11 +38,19 @@
                         <flux:separator variant="subtle" />
 
 
-                        <!-- Tax Information -->
-                        <div class="mb-4 mt-4">
+                        <!-- Tax Information -->\n                        <div class="mb-4 mt-4">
                             <flux:heading size="lg" class="mb-4 mt-4">Tax Information</flux:heading>
-                            <flux:input name="npwp" label="NPWP (Nomor Pokok Wajib Pajak)" placeholder="e.g., 12.345.678.9-012.000" value="{{ old('npwp') }}" />
-                            <p class="text-sm text-zinc-500 mt-2">Optional - Enter your tax identification number if available</p>
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                <!-- NPWP Upload -->
+                                <div>
+                                    <flux:label>NPWP (Upload Foto)</flux:label>
+                                    <input type="file" name="npwp" accept="image/*,application/pdf" class="mt-2 block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400">
+                                    @error('npwp')
+                                        <span class="text-sm text-red-600 dark:text-red-400 mt-1">{{ $message }}</span>
+                                    @enderror
+                                    <p class="text-sm text-zinc-500 mt-2">Upload foto NPWP (JPG, PNG, atau PDF) - Optional</p>
+                                </div>
+                            </div>
                         </div>
 
                         <flux:separator variant="subtle" />
@@ -65,8 +73,15 @@
                                 <flux:select name="position" label="Position Applied For" placeholder="Select Position" required>
                                     <option value="Master" {{ old('position') == 'Master' ? 'selected' : '' }}>Master</option>
                                     <option value="Chief Officer" {{ old('position') == 'Chief Officer' ? 'selected' : '' }}>Chief Officer</option>
-                                    <option value="Able Seaman" {{ old('position') == 'Able Seaman' ? 'selected' : '' }}>Able Seaman</option>
+                                    <option value="Third Officer" {{ old('position') == 'Third Officer' ? 'selected' : '' }}>Third Officer</option>
+                                    <option value="Bosun" {{ old('position') == 'Bosun' ? 'selected' : '' }}>Bosun</option>
+                                    <option value="Chief Engineer" {{ old('position') == 'Chief Engineer' ? 'selected' : '' }}>Chief Engineer</option>
+                                    <option value="Second Engineer" {{ old('position') == 'Second Engineer' ? 'selected' : '' }}>Second Engineer</option>
+                                    <option value="Third Engineer" {{ old('position') == 'Third Engineer' ? 'selected' : '' }}>Third Engineer</option>
+                                    <option value="Able / Ratings" {{ old('position') == 'Able / Ratings' ? 'selected' : '' }}>Able / Ratings</option>
+                                    <option value="Oiler" {{ old('position') == 'Oiler' ? 'selected' : '' }}>Oiler</option>
                                     <option value="Cook" {{ old('position') == 'Cook' ? 'selected' : '' }}>Cook</option>
+                                    <option value="Cadet" {{ old('position') == 'Cadet' ? 'selected' : '' }}>Cadet</option>
                                 </flux:select>
                                 
                                 <flux:input type="date" name="available_interview_date" label="Available Interview Date" value="{{ old('available_interview_date') }}" required />

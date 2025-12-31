@@ -24,22 +24,23 @@ class JobApplicationController extends Controller
             'date_of_birth' => 'required|date',
             'gender' => 'required|in:Laki-laki,Perempuan',
             'religion' => 'required|in:Islam,Kristen,Hindu,Budha,Konghucu,Lainnya',
-            'npwp' => 'nullable|string|max:20',
+            'npwp' => 'nullable|file|mimes:jpeg,png,pdf|max:2048',
             'address_ktp' => 'required|string',
             'domicile' => 'required|string',
             'ktp' => 'nullable|file|mimes:jpeg,png,pdf|max:2048',
             'kk' => 'nullable|file|mimes:jpeg,png,pdf|max:2048',
             'cv' => 'nullable|file|mimes:pdf,doc,docx|max:2048',
             'certificate' => 'nullable|file|mimes:pdf,jpeg,png|max:2048',
+            'coe' => 'nullable|file|mimes:pdf,jpeg,png|max:2048',
             'medical_certificate' => 'nullable|file|mimes:pdf,jpeg,png|max:2048',
             'buku_pelaut' => 'nullable|file|mimes:jpeg,png,pdf|max:2048',
             'account_data' => 'nullable|file|mimes:jpeg,png,pdf|max:2048',
-            'position' => 'required|in:Master,Chief Officer,Able Seaman,Cook',
+            'position' => 'required|in:Master,Chief Officer,Third Officer,Bosun,Chief Engineer,Second Engineer,Third Engineer,Able / Ratings,Oiler,Cook,Cadet',
             'cover_letter' => 'nullable|string',
             'available_interview_date' => 'required|date',
         ]);
 
-        $files = ['ktp', 'kk', 'cv', 'certificate', 'medical_certificate', 'buku_pelaut', 'account_data'];
+        $files = ['ktp', 'kk', 'cv', 'certificate', 'coe', 'medical_certificate', 'buku_pelaut', 'account_data', 'npwp'];
         $paths = session('job_application_files', []);
 
         foreach ($files as $file) {
@@ -147,7 +148,7 @@ class JobApplicationController extends Controller
             'date_of_birth' => 'required|date',
             'gender' => 'required|in:Laki-laki,Perempuan',
             'religion' => 'required|in:Islam,Kristen,Hindu,Budha,Konghucu,Lainnya',
-            'npwp' => 'nullable|string|max:20',
+            'npwp' => 'nullable|file|mimes:jpeg,png,pdf|max:2048',
             'address_ktp' => 'required|string',
             'domicile' => 'required|string',
             'ktp' => 'nullable|file|mimes:jpeg,png,pdf|max:2048',
@@ -157,13 +158,13 @@ class JobApplicationController extends Controller
             'medical_certificate' => 'nullable|file|mimes:pdf,jpeg,png|max:2048',
             'buku_pelaut' => 'nullable|file|mimes:jpeg,png,pdf|max:2048',
             'account_data' => 'nullable|file|mimes:jpeg,png,pdf|max:2048',
-            'position' => 'required|in:Master,Chief Officer,Able Seaman,Cook',
+            'position' => 'required|in:Master,Chief Officer,Third Officer,Bosun,Chief Engineer,Second Engineer,Third Engineer,Able / Ratings,Oiler,Cook,Cadet',
             'cover_letter' => 'nullable|string',
             'available_interview_date' => 'required|date',
         ]);
 
         // Handle file uploads - keep old files if not replaced
-        $files = ['ktp', 'kk', 'cv', 'certificate', 'coe', 'medical_certificate', 'buku_pelaut', 'account_data'];
+        $files = ['ktp', 'kk', 'cv', 'certificate', 'coe', 'medical_certificate', 'buku_pelaut', 'account_data', 'npwp'];
         $filePaths = [];
 
         foreach ($files as $file) {

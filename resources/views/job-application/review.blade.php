@@ -30,10 +30,10 @@
                                     <flux:label>Agama</flux:label>
                                     <div class="text-sm font-medium">{{ $data['religion'] }}</div>
                                 </div>
-                                @if(!empty($data['npwp']))
+                                @if(!empty(session('uploaded_files.npwp_path')))
                                 <div>
                                     <flux:label>NPWP</flux:label>
-                                    <div class="text-sm font-medium">{{ $data['npwp'] }}</div>
+                                    <div class="text-sm font-medium">Uploaded</div>
                                 </div>
                                 @endif
                             </div>

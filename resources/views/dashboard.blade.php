@@ -102,7 +102,7 @@
                         <flux:icon name="users" class="text-blue-600 dark:text-blue-400" size="lg" />
                     </div>
                     <div>
-                        <div class="text-sm text-zinc-500 dark:text-zinc-400">Total Applications</div>
+                        <div class="text-sm text-zinc-500 dark:text-zinc-400">Total Lamaran</div>
                         <div class="text-2xl font-bold">
                             @php
                                 try {

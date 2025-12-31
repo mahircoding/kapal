@@ -22,7 +22,7 @@
                     <flux:navlist.item icon="document-text" :href="route('job-application.create')" :current="request()->routeIs('job-application.*')" wire:navigate>{{ __('Lamaran Saya') }}</flux:navlist.item>
                     @endif
                     @role('admin')
-                    <flux:navlist.item icon="users" :href="route('admin.applications.index')" :current="request()->routeIs('admin.applications.*')" wire:navigate>{{ __('Job Applications') }}</flux:navlist.item>
+                    <flux:navlist.item icon="users" :href="route('admin.applications.index')" :current="request()->routeIs('admin.applications.*')" wire:navigate>{{ __('Lamaran Pekerjaan') }}</flux:navlist.item>
                     @endrole
                 </flux:navlist.group>
             </flux:navlist>
@@ -79,7 +79,7 @@
                     <form method="POST" action="{{ route('logout') }}" class="w-full">
                         @csrf
                         <flux:menu.item as="button" type="submit" icon="arrow-right-start-on-rectangle" class="w-full" data-test="logout-button">
-                            {{ __('Log Out') }}
+                            {{ __('Keluar') }}
                         </flux:menu.item>
                     </form>
                 </flux:menu>
@@ -129,7 +129,7 @@
                     <form method="POST" action="{{ route('logout') }}" class="w-full">
                         @csrf
                         <flux:menu.item as="button" type="submit" icon="arrow-right-start-on-rectangle" class="w-full" data-test="logout-button">
-                            {{ __('Log Out') }}
+                            {{ __('Keluar') }}
                         </flux:menu.item>
                     </form>
                 </flux:menu>

@@ -20,7 +20,7 @@
 
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                             <div>
-                                <flux:label>Place & Tanggal Lahir</flux:label>
+                                <flux:label>Tempat & Tanggal Lahir</flux:label>
                                 <div class="font-medium mt-1">{{ $application->place_of_birth }}, {{ \Carbon\Carbon::parse($application->date_of_birth)->format('d M Y') }}</div>
                             </div>
                             <div>
@@ -32,16 +32,22 @@
                                 <div class="font-medium mt-1">{{ $application->religion }}</div>
                             </div>
                             <div>
-                                <flux:label>WhatsApp Number</flux:label>
+                                <flux:label>Nomor WhatsApp</flux:label>
                                 <div class="font-medium mt-1">{{ $application->user->whatsapp_number ?? '-' }}</div>
                             </div>
                             <div>
                                 <flux:label>NPWP</flux:label>
-                                <div class="font-medium mt-1">{{ $application->npwp ?? '-' }}</div>
+                                <div class="font-medium mt-1">
+                                    @if($application->npwp_path)
+                                        <a href="{{ Storage::url($application->npwp_path) }}" target="_blank" class="text-blue-600 hover:underline">Lihat File NPWP</a>
+                                    @else
+                                        -
+                                    @endif
+                                </div>
                             </div>
                             @if(!empty($application->available_interview_date))
                             <div>
-                                <flux:label>Available Interview Date</flux:label>
+                                <flux:label>Tanggal Wawancara</flux:label>
                                 <div class="font-medium mt-1">{{ \Carbon\Carbon::parse($application->available_interview_date)->format('d F Y') }}</div>
                             </div>
                             @endif
@@ -57,7 +63,7 @@
 
                         <flux:separator class="my-6" />
 
-                        <flux:heading size="md" class="mb-4">Documents</flux:heading>
+                        <flux:heading size="md" class="mb-4">Dokumen</flux:heading>
                         <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
                         @foreach(['ktp', 'kk', 'cv', 'certificate', 'coe', 'medical_certificate', 'buku_pelaut', 'account_data'] as $doc)
                                 @if($application->{$doc . '_path'})
@@ -100,7 +106,7 @@
 
                             <flux:textarea name="admin_note" label="Notes / Feedback" placeholder="Add internal notes or feedback for the applicant..." rows="6">{{ $application->admin_note }}</flux:textarea>
 
-                            <flux:button variant="primary" type="submit" class="w-full">Update Application</flux:button>
+                            <flux:button variant="primary" type="submit" class="w-full">Update Status</flux:button>
                         </form>
                     </div>
                 </div>

@@ -34,7 +34,7 @@
             <!-- Confirm Password -->
             <flux:input
                 name="password_confirmation"
-                :label="__('Confirm password')"
+                :label="__('Konfirmasi Password')"
                 type="password"
                 required
                 autocomplete="new-password"

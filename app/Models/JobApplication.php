@@ -12,7 +12,7 @@ class JobApplication extends Model
         'date_of_birth',
         'gender',
         'religion',
-        'npwp',
+        'npwp_path',
         'address_ktp',
         'domicile',
         'ktp_path',

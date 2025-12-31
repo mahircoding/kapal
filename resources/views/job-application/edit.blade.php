@@ -74,11 +74,41 @@
                                 <flux:select name="position" label="Position Applied For" placeholder="Select Position" required>
                                     <option value="Master" {{ old('position', $application->position) == 'Master' ? 'selected' : '' }}>Master</option>
                                     <option value="Chief Officer" {{ old('position', $application->position) == 'Chief Officer' ? 'selected' : '' }}>Chief Officer</option>
-                                    <option value="Able Seaman" {{ old('position', $application->position) == 'Able Seaman' ? 'selected' : '' }}>Able Seaman</option>
+                                    <option value="Third Officer" {{ old('position', $application->position) == 'Third Officer' ? 'selected' : '' }}>Third Officer</option>
+                                    <option value="Bosun" {{ old('position', $application->position) == 'Bosun' ? 'selected' : '' }}>Bosun</option>
+                                    <option value="Chief Engineer" {{ old('position', $application->position) == 'Chief Engineer' ? 'selected' : '' }}>Chief Engineer</option>
+                                    <option value="Second Engineer" {{ old('position', $application->position) == 'Second Engineer' ? 'selected' : '' }}>Second Engineer</option>
+                                    <option value="Third Engineer" {{ old('position', $application->position) == 'Third Engineer' ? 'selected' : '' }}>Third Engineer</option>
+                                    <option value="Able / Ratings" {{ old('position', $application->position) == 'Able / Ratings' ? 'selected' : '' }}>Able / Ratings</option>
+                                    <option value="Oiler" {{ old('position', $application->position) == 'Oiler' ? 'selected' : '' }}>Oiler</option>
                                     <option value="Cook" {{ old('position', $application->position) == 'Cook' ? 'selected' : '' }}>Cook</option>
+                                    <option value="Cadet" {{ old('position', $application->position) == 'Cadet' ? 'selected' : '' }}>Cadet</option>
                                 </flux:select>
                                 
                                 <flux:input type="date" name="available_interview_date" label="Available Interview Date" value="{{ old('available_interview_date', $application->available_interview_date) }}" required />
+                            </div>
+                        </div>
+
+                        <flux:separator variant="subtle" />
+
+                        <!-- Tax Information -->
+                        <div class="mb-4 mt-4">
+                            <flux:heading size="lg" class="mb-4 mt-4">Tax Information</flux:heading>
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                <!-- NPWP Upload -->
+                                <div>
+                                    <flux:label>NPWP (Upload Foto)</flux:label>
+                                    @if($application->npwp_path)
+                                        <div class="text-sm text-green-600 dark:text-green-400 mb-2">
+                                            ✓ File uploaded: <a href="{{ Storage::url($application->npwp_path) }}" target="_blank" class="underline">{{ basename($application->npwp_path) }}</a>
+                                        </div>
+                                    @endif
+                                    <input type="file" name="npwp" accept="image/*,application/pdf" class="mt-2 block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400">
+                                    @error('npwp')
+                                        <span class="text-sm text-red-600 dark:text-red-400 mt-1">{{ $message }}</span>
+                                    @enderror
+                                    <p class="text-sm text-zinc-500 mt-2">Upload foto NPWP baru (JPG, PNG, atau PDF) - Kosongkan jika tidak ingin mengubah</p>
+                                </div>
                             </div>
                         </div>
 
@@ -195,7 +225,7 @@
                         </div> -->
 
                         <div class="flex justify-end pt-6 mt-4">
-                            <flux:button variant="primary" type="submit" class="w-full md:w-auto">{{ __('Update Application') }}</flux:button>
+                            <flux:button variant="primary" type="submit" class="w-full md:w-auto">{{ __('Update Lamaran') }}</flux:button>
                         </div>
                     </form>
                 </div>
