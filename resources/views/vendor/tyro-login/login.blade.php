@@ -5,8 +5,8 @@
     @if(in_array($layout, ['split-left', 'split-right']))
     <div class="background-panel" style="background-image: url('{{ $backgroundImage }}');">
         <div class="background-panel-content">
-            <h1>{{ $pageContent['background_title'] ?? 'Welcome Back!' }}</h1>
-            <p>{{ $pageContent['background_description'] ?? 'Sign in to access your account and continue where you left off. We\'re glad to see you again.' }}</p>
+            <h1>{{ $pageContent['background_title'] ?? 'Selamat Datang Kembali!' }}</h1>
+            <p>{{ $pageContent['background_description'] ?? 'Masuk untuk mengakses akun Anda dan melanjutkan dari terakhir kali. Kami senang melihat Anda lagi.' }}</p>
         </div>
     </div>
     @endif
@@ -28,13 +28,13 @@
 
             <!-- Header -->
             <div class="form-header">
-                <h2>Log in to your account</h2>
+                <h2>Masuk ke Akun Anda</h2>
                 @if(($loginField ?? 'email') === 'both')
-                <p>Enter your email or username and password below to log in</p>
+                <p>Masukkan email atau username dan password Anda di bawah ini</p>
                 @elseif(($loginField ?? 'email') === 'username')
-                <p>Enter your username and password below to log in</p>
+                <p>Masukkan username dan password Anda di bawah ini</p>
                 @else
-                <p>Enter your email and password below to log in</p>
+                <p>Masukkan email dan password Anda di bawah ini</p>
                 @endif
             </div>
 
@@ -45,8 +45,8 @@
                 <!-- Login Field (Email, Username, or Both) -->
                 @if(($loginField ?? 'email') === 'both')
                 <div class="form-group">
-                    <label for="login" class="form-label">Email or Username</label>
-                    <input type="text" id="login" name="login" class="form-input @error('login') is-invalid @enderror" value="{{ old('login') }}" required autocomplete="username" autofocus placeholder="Email or username">
+                    <label for="login" class="form-label">Email atau Username</label>
+                    <input type="text" id="login" name="login" class="form-input @error('login') is-invalid @enderror" value="{{ old('login') }}" required autocomplete="username" autofocus placeholder="Email atau username">
                     @error('login')
                     <span class="error-message">{{ $message }}</span>
                     @enderror
@@ -71,9 +71,9 @@
 
                 <!-- Password Field -->
                 <div class="form-group">
-                    <label for="password" class="form-label">Password</label>
+                    <label for="password" class="form-label">Kata Sandi</label>
                     <div class="password-toggle-wrapper" style="position: relative;">
-                        <input type="password" id="password" name="password" class="form-input @error('password') is-invalid @enderror" required autocomplete="current-password" placeholder="Password" style="padding-right: 2.5rem;">
+                        <input type="password" id="password" name="password" class="form-input @error('password') is-invalid @enderror" required autocomplete="current-password" placeholder="Kata Sandi" style="padding-right: 2.5rem;">
                         <button type="button" class="password-toggle-btn" onclick="togglePasswordVisibility('password')" style="position: absolute; right: 0.75rem; top: 50%; transform: translateY(-50%); background: none; border: none; cursor: pointer; color: var(--foreground); opacity: 0.7;">
                             <!-- Eye Icon (Show) -->
                             <svg xmlns="http://www.w3.org/2000/svg" class="eye-icon-show" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" style="width: 1.25rem; height: 1.25rem;">
@@ -96,14 +96,14 @@
                     @if($features['remember_me'] ?? true)
                     <div class="checkbox-group">
                         <input type="checkbox" id="remember" name="remember" class="checkbox-input" {{ old('remember') ? 'checked' : '' }}>
-                        <label for="remember" class="checkbox-label">Remember me</label>
+                        <label for="remember" class="checkbox-label">Ingat Saya</label>
                     </div>
                     @else
                     <div></div>
                     @endif
 
                     @if($features['forgot_password'] ?? true)
-                    <a href="{{ route('password.request') }}" class="form-link">Forgot password?</a>
+                    <a href="{{ route('password.request') }}" class="form-link">Lupa Kata Sandi?</a>
                     @endif
                 </div>
 
@@ -123,7 +123,7 @@
 
                 <!-- Submit Button -->
                 <button type="submit" class="btn btn-primary">
-                    Log in
+                    Masuk
                 </button>
             </form>
 
@@ -131,8 +131,8 @@
             @if($registrationEnabled ?? true)
             <div class="form-footer">
                 <p>
-                    Don't have an account?
-                    <a href="{{ route('register') }}" class="form-link">Sign up</a>
+                    Sudah punya akun?
+                    <a href="{{ route('register') }}" class="form-link">Daftar</a>
                 </p>
             </div>
             @endif

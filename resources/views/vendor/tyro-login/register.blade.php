@@ -5,8 +5,8 @@
     @if(in_array($layout, ['split-left', 'split-right']))
     <div class="background-panel" style="background-image: url('{{ $backgroundImage }}');">
         <div class="background-panel-content">
-            <h1>{{ $pageContent['background_title'] ?? 'Join Us Today!' }}</h1>
-            <p>{{ $pageContent['background_description'] ?? 'Create your account and start your journey with us. It only takes a minute to get started.' }}</p>
+            <h1>{{ $pageContent['background_title'] ?? 'Bergabunglah Bersama Kami!' }}</h1>
+            <p>{{ $pageContent['background_description'] ?? 'Buat akun Anda dan mulai perjalanan bersama kami. Hanya butuh satu menit untuk memulai.' }}</p>
         </div>
     </div>
     @endif
@@ -28,8 +28,8 @@
 
             <!-- Header -->
             <div class="form-header">
-                <h2>Create an account</h2>
-                <p>Enter your details below to create your account</p>
+                <h2>Buat Akun</h2>
+                <p>Masukkan detail Anda di bawah ini untuk membuat akun</p>
             </div>
 
             <!-- Registration Form -->
@@ -38,8 +38,8 @@
 
                 <!-- Name Field -->
                 <div class="form-group">
-                    <label for="name" class="form-label">Name</label>
-                    <input type="text" id="name" name="name" class="form-input @error('name') is-invalid @enderror" value="{{ old('name') }}" required autocomplete="name" autofocus placeholder="Name">
+                    <label for="name" class="form-label">Nama Lengkap</label>
+                    <input type="text" id="name" name="name" class="form-input @error('name') is-invalid @enderror" value="{{ old('name') }}" required autocomplete="name" autofocus placeholder="Nama Lengkap">
                     @error('name')
                     <span class="error-message">{{ $message }}</span>
                     @enderror
@@ -57,7 +57,7 @@
 
                 <!-- WhatsApp Number Field -->
                 <div class="form-group">
-                    <label for="whatsapp_number" class="form-label">WhatsApp Number</label>
+                    <label for="whatsapp_number" class="form-label">Nomor WhatsApp</label>
                     <input type="tel" id="whatsapp_number" name="whatsapp_number" class="form-input @error('whatsapp_number') is-invalid @enderror" value="{{ old('whatsapp_number') }}" required>
                     @error('whatsapp_number')
                     <span class="error-message">{{ $message }}</span>
@@ -66,9 +66,9 @@
 
                 <!-- Password Field -->
                 <div class="form-group">
-                    <label for="password" class="form-label">Password</label>
+                    <label for="password" class="form-label">Kata Sandi</label>
                     <div class="password-toggle-wrapper" style="position: relative;">
-                        <input type="password" id="password" name="password" class="form-input @error('password') is-invalid @enderror" required autocomplete="new-password" placeholder="Password" minlength="{{ config('tyro-login.password.min_length', 8) }}" style="padding-right: 2.5rem;">
+                        <input type="password" id="password" name="password" class="form-input @error('password') is-invalid @enderror" required autocomplete="new-password" placeholder="Kata Sandi" minlength="{{ config('tyro-login.password.min_length', 8) }}" style="padding-right: 2.5rem;">
                         <button type="button" class="password-toggle-btn" onclick="togglePasswordVisibility('password')" style="position: absolute; right: 0.75rem; top: 50%; transform: translateY(-50%); background: none; border: none; cursor: pointer; color: var(--foreground); opacity: 0.7;">
                             <svg xmlns="http://www.w3.org/2000/svg" class="eye-icon-show" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" style="width: 1.25rem; height: 1.25rem;">
                                 <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
@@ -87,9 +87,9 @@
                 <!-- Confirm Password Field -->
                 @if($requirePasswordConfirmation ?? true)
                 <div class="form-group">
-                    <label for="password_confirmation" class="form-label">Confirm Password</label>
+                    <label for="password_confirmation" class="form-label">Konfirmasi Kata Sandi</label>
                     <div class="password-toggle-wrapper" style="position: relative;">
-                        <input type="password" id="password_confirmation" name="password_confirmation" class="form-input @error('password_confirmation') is-invalid @enderror" required autocomplete="new-password" placeholder="Confirm Password" style="padding-right: 2.5rem;">
+                        <input type="password" id="password_confirmation" name="password_confirmation" class="form-input @error('password_confirmation') is-invalid @enderror" required autocomplete="new-password" placeholder="Konfirmasi Kata Sandi" style="padding-right: 2.5rem;">
                         <button type="button" class="password-toggle-btn" onclick="togglePasswordVisibility('password_confirmation')" style="position: absolute; right: 0.75rem; top: 50%; transform: translateY(-50%); background: none; border: none; cursor: pointer; color: var(--foreground); opacity: 0.7;">
                             <svg xmlns="http://www.w3.org/2000/svg" class="eye-icon-show" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" style="width: 1.25rem; height: 1.25rem;">
                                 <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
