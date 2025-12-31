@@ -49,7 +49,7 @@
                         @if($application->status === 'reviewed')
                         <div class="mb-6">
                             <flux:button variant="primary" :href="route('job-application.edit')" wire:navigate>
-                                Edit Application
+                                Edit Lamaran
                             </flux:button>
                         </div>
                         @endif
@@ -65,9 +65,8 @@
                         @if(!empty($application->available_interview_date))
                         <flux:separator variant="subtle" />
                         <div>
-                            <flux:heading size="lg" class="mb-4">Interview Availability</flux:heading>
-                            <div>
-                                <flux:label>Available Interview Date</flux:label>
+                            <div class="mt-2">
+                                <flux:label>Tanggal Wawancara</flux:label>
                                 <div class="text-sm font-medium">{{ \Carbon\Carbon::parse($application->available_interview_date)->format('d F Y') }}</div>
                             </div>
                         </div>
@@ -79,7 +78,7 @@
                             <div>
                                 <h4 class="font-medium mb-2 mt-2">Informasi Pribadi</h4>
                                 <ul class="space-y-2 text-sm">
-                                    <li><strong>Name:</strong> {{ auth()->user()->name }}</li>
+                                    <li><strong>Nama Lengkap:</strong> {{ auth()->user()->name }}</li>
                                     <li><strong>Email:</strong> {{ auth()->user()->email }}</li>
                                     <li><strong>Tempat Lahir:</strong> {{ $application->place_of_birth }}</li>
                                     <li><strong>Tanggal Lahir:</strong> {{ $application->date_of_birth }}</li>
@@ -89,7 +88,7 @@
                                     <li><strong>NPWP:</strong> {{ $application->npwp }}</li>
                                     @endif
                                     @if(!empty($application->available_interview_date))
-                                    <li><strong>Available Interview Date:</strong> {{ \Carbon\Carbon::parse($application->available_interview_date)->format('d M Y') }}</li>
+                                    <li><strong>Tanggal Wawancara:</strong> {{ \Carbon\Carbon::parse($application->available_interview_date)->format('d M Y') }}</li>
                                     @endif
                                 </ul>
                             </div>
@@ -105,7 +104,7 @@
                         <flux:separator variant="subtle" class="my-4 mt-2"/>
                         
                              <div>
-                                 <h4 class="font-medium mb-2 mt-2">Documents</h4>
+                                 <h4 class="font-medium mb-2 mt-2">Dokumen</h4>
                                  <div class="flex gap-4 flex-wrap">
                                 @if($application->cv_path)
                                 <a href="{{ Storage::url($application->cv_path) }}" target="_blank" class="text-blue-600 hover:underline text-sm flex items-center gap-1">
@@ -134,7 +133,7 @@
                                 @endif
                                 @if($application->medical_certificate_path)
                                 <a href="{{ Storage::url($application->medical_certificate_path) }}" target="_blank" class="text-blue-600 hover:underline text-sm flex items-center gap-1">
-                                    <flux:icon name="heart" size="sm" /> Medical
+                                    <flux:icon name="heart" size="sm" /> Sertifikat Kesehatan
                                 </a>
                                 @endif
                                 @if($application->buku_pelaut_path)
@@ -144,7 +143,7 @@
                                 @endif
                                 @if($application->account_data_path)
                                 <a href="{{ Storage::url($application->account_data_path) }}" target="_blank" class="text-blue-600 hover:underline text-sm flex items-center gap-1">
-                                    <flux:icon name="credit-card" size="sm" /> Account Bank
+                                    <flux:icon name="credit-card" size="sm" /> Informasi Rekening
                                 </a>
                                 @endif
                                  </div>

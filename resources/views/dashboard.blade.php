@@ -4,8 +4,8 @@
         <div class="bg-gradient-to-r from-blue-500 to-blue-600 dark:from-blue-600 dark:to-blue-700 rounded-xl p-8 text-white shadow-lg">
             <div class="flex items-center justify-between">
                 <div>
-                    <h1 class="text-3xl font-bold mb-2">Welcome back, {{ auth()->user()->name }}! 👋</h1>
-                    <p class="text-lg">{{ now()->format('l, d F Y') }}</p>
+                    <h1 class="text-3xl font-bold mb-2">Selamat datang, {{ auth()->user()->name }}! 👋</h1>
+                    <p class="text-lg">{{ \Carbon\Carbon::now()->locale('id')->translatedFormat('l, d F Y') }}</p>
                 </div>
                 <div class="hidden md:block">
                     
@@ -27,7 +27,7 @@
                             @if(auth()->user()->jobApplication)
                                 {{ ucfirst(auth()->user()->jobApplication->status) }}
                             @else
-                                Not Submitted
+                                Belum Mengajukan Lamaran
                             @endif
                         </div>
                     </div>
@@ -79,11 +79,11 @@
             <div class="flex flex-wrap gap-3">
                 @if(!auth()->user()->jobApplication)
                 <flux:button href="{{ route('job-application.create') }}" variant="primary" wire:navigate>
-                    <flux:icon name="plus" size="sm" /> Submit Application
+                    <flux:icon name="plus" size="sm" /> Ajukan Lamaran
                 </flux:button>
                 @else
                 <flux:button href="{{ route('job-application.show') }}" variant="primary" wire:navigate>
-                    <flux:icon name="eye" size="sm" /> View Application
+                    <flux:icon name="eye" size="sm" /> Lihat Lamaran
                 </flux:button>
                 @endif
                 <flux:button href="{{ route('profile.edit') }}" variant="outline" wire:navigate>
@@ -162,7 +162,7 @@
             <h2 class="text-lg font-semibold mb-4">Tindakan cepat</h2>
             <div class="flex flex-wrap gap-3">
                 <flux:button href="{{ route('admin.applications.index') }}" variant="primary" wire:navigate>
-                    <flux:icon name="document-text" size="sm" /> View Applications
+                    <flux:icon name="document-text" size="sm" /> Lihat Lamaran
                 </flux:button>
                 @if(auth()->user()->hasRole('admin'))
                 <flux:button href="{{ route('admin.settings.index') }}" variant="outline" wire:navigate>
