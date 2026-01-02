@@ -16,6 +16,7 @@
                             <flux:navlist>
                                 <flux:navlist.item :href="route('admin.settings.index', ['tab' => 'whatsapp'])" :current="request()->query('tab', 'whatsapp') === 'whatsapp'" wire:navigate>{{ __('WhatsApp') }}</flux:navlist.item>
                                 <flux:navlist.item :href="route('admin.settings.index', ['tab' => 'smtp'])" :current="request()->query('tab') === 'smtp'" wire:navigate>{{ __('SMTP Mail') }}</flux:navlist.item>
+                                <flux:navlist.item :href="route('admin.settings.index', ['tab' => 'notifications'])" :current="request()->query('tab') === 'notifications'" wire:navigate>{{ __('Notifications') }}</flux:navlist.item>
                                 <flux:navlist.item :href="route('admin.settings.index', ['tab' => 'appearance'])" :current="request()->query('tab') === 'appearance'" wire:navigate>{{ __('Appearance') }}</flux:navlist.item>
                             </flux:navlist>
                         </div>
@@ -71,6 +72,49 @@
                                         
                                         <flux:input name="mail_from_address" label="From Address" type="email" value="{{ old('mail_from_address', $mailFromAddress) }}" />
                                         <flux:input name="mail_from_name" label="From Name" value="{{ old('mail_from_name', $mailFromName) }}" />
+                                    </div>
+                                </div>
+                                @endif
+
+                                <!-- Notifications Tab -->
+                                @if(request()->query('tab') === 'notifications')
+                                <div>
+                                    <flux:heading>{{ __('Notification Settings') }}</flux:heading>
+                                    <flux:subheading>{{ __('Configure admin contacts for application notifications') }}</flux:subheading>
+
+                                    <div class="mt-5 space-y-6">
+                                        <flux:input 
+                                            name="admin_notification_email" 
+                                            label="Admin Email" 
+                                            type="email"
+                                            value="{{ old('admin_notification_email', $adminNotificationEmail ?? '') }}" 
+                                            description="Email address to receive notifications for new registrations and job applications"
+                                        />
+                                        @error('admin_notification_email')
+                                            <flux:error>{{ $message }}</flux:error>
+                                        @enderror
+
+                                        <flux:input 
+                                            name="admin_notification_whatsapp" 
+                                            label="Admin WhatsApp Number" 
+                                            type="text"
+                                            value="{{ old('admin_notification_whatsapp', $adminNotificationWhatsapp ?? '') }}" 
+                                            description="WhatsApp number to receive notifications (format: 628xxxxxxxxxx)"
+                                            placeholder="628123456789"
+                                        />
+                                        @error('admin_notification_whatsapp')
+                                            <flux:error>{{ $message }}</flux:error>
+                                        @enderror
+
+                                        <div class="p-4 bg-blue-50 dark:bg-blue-900/20 rounded-lg">
+                                            <p class="text-sm text-blue-800 dark:text-blue-200">
+                                                <strong>Note:</strong> Notifications will be sent to these contacts when:
+                                            </p>
+                                            <ul class="list-disc list-inside text-sm text-blue-700 dark:text-blue-300 mt-2 space-y-1">
+                                                <li>A new user registers an account</li>
+                                                <li>A job application is submitted</li>
+                                            </ul>
+                                        </div>
                                     </div>
                                 </div>
                                 @endif

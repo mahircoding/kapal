@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\Settings;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class AdminSettingsController extends Controller
 {
@@ -26,6 +27,10 @@ class AdminSettingsController extends Controller
         $siteTagline = $settings['site_tagline'] ?? '';
         $siteLogo = $settings['site_logo'] ?? '';
         $siteFavicon = $settings['site_favicon'] ?? '';
+        
+        // Notification settings
+        $adminNotificationEmail = $settings['admin_notification_email'] ?? '';
+        $adminNotificationWhatsapp = $settings['admin_notification_whatsapp'] ?? '';
 
         return view('admin.settings.index', compact(
             'apiKey', 
@@ -39,7 +44,9 @@ class AdminSettingsController extends Controller
             'siteName',
             'siteTagline',
             'siteLogo',
-            'siteFavicon'
+            'siteFavicon',
+            'adminNotificationEmail',
+            'adminNotificationWhatsapp'
         ));
     }
 
@@ -58,6 +65,8 @@ class AdminSettingsController extends Controller
             'site_tagline' => 'nullable|string|max:500',
             'site_logo' => 'nullable|image|mimes:png,jpg,jpeg,svg|max:2048',
             'site_favicon' => 'nullable|image|mimes:png,jpg,jpeg,ico|max:1024',
+            'admin_notification_email' => 'nullable|email',
+            'admin_notification_whatsapp' => 'nullable|string|regex:/^628[0-9]{8,12}$/',
         ]);
 
         $settings = $request->only([
@@ -71,6 +80,8 @@ class AdminSettingsController extends Controller
             'mail_from_name',
             'site_name',
             'site_tagline',
+            'admin_notification_email',
+            'admin_notification_whatsapp',
         ]);
         
         // Handle logo upload
@@ -78,7 +89,7 @@ class AdminSettingsController extends Controller
             // Delete old logo
             $oldLogo = Settings::where('key', 'site_logo')->first();
             if ($oldLogo && $oldLogo->value) {
-                \Storage::disk('public')->delete($oldLogo->value);
+                Storage::disk('public')->delete($oldLogo->value);
             }
             
             $settings['site_logo'] = $request->file('site_logo')->store('branding', 'public');
@@ -89,7 +100,7 @@ class AdminSettingsController extends Controller
             // Delete old favicon
             $oldFavicon = Settings::where('key', 'site_favicon')->first();
             if ($oldFavicon && $oldFavicon->value) {
-                \Storage::disk('public')->delete($oldFavicon->value);
+                Storage::disk('public')->delete($oldFavicon->value);
             }
             
             $settings['site_favicon'] = $request->file('site_favicon')->store('branding', 'public');
