@@ -24,6 +24,10 @@ class AdminApplicationController extends Controller
             $query->where('status', $request->status);
         }
 
+        if ($request->has('position') && $request->position !== 'all') {
+            $query->where('position', $request->position);
+        }
+
         $applications = $query->latest()->paginate(10);
 
         return view('admin.applications.index', compact('applications'));

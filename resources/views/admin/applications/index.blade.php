@@ -11,7 +11,7 @@
                     </div>
 
                     <!-- Filters -->
-                    <form method="GET" action="{{ route('admin.applications.index') }}" class="mb-6 flex gap-4 max-w-2xl">
+                    <form method="GET" action="{{ route('admin.applications.index') }}" class="mb-6 flex gap-4 max-w-4xl">
                         <flux:input icon="magnifying-glass" type="search" name="search" placeholder="Cari berdasarkan nama atau email..." value="{{ request('search') }}" class="w-full" />
                         
                         <div class="w-48">
@@ -21,6 +21,23 @@
                                 <option value="reviewed">Reviewed</option>
                                 <option value="accepted">Accepted</option>
                                 <option value="rejected">Rejected</option>
+                            </flux:select>
+                        </div>
+                        
+                        <div class="w-48">
+                            <flux:select placeholder="Posisi" name="position" :value="request('position', 'all')">
+                                <option value="all">Semua Posisi</option>
+                                <option value="Master">Master</option>
+                                <option value="Chief Officer">Chief Officer</option>
+                                <option value="Third Officer">Third Officer</option>
+                                <option value="Bosun">Bosun</option>
+                                <option value="Chief Engineer">Chief Engineer</option>
+                                <option value="Second Engineer">Second Engineer</option>
+                                <option value="Third Engineer">Third Engineer</option>
+                                <option value="Able / Ratings">Able / Ratings</option>
+                                <option value="Oiler">Oiler</option>
+                                <option value="Cook">Cook</option>
+                                <option value="Cadet">Cadet</option>
                             </flux:select>
                         </div>
                         
